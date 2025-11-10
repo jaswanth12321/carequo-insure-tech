@@ -243,6 +243,137 @@ export default function WellnessPartners({ user, onLogout }) {
         </div>
       </div>
 
+      {/* Modals */}
+      {showBookModal && selectedPartner && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
+          <Card data-testid="book-service-modal" className="w-full max-w-md p-8">
+            <h2 className="text-2xl font-heading font-bold mb-6">Book {selectedPartner.name}</h2>
+            <form data-testid="book-service-form" onSubmit={handleBooking} className="space-y-4">
+              <div>
+                <Label htmlFor="booking_date">Date</Label>
+                <Input
+                  id="booking_date"
+                  data-testid="booking-date-input"
+                  type="date"
+                  value={bookingData.booking_date}
+                  onChange={(e) => setBookingData({ ...bookingData, booking_date: e.target.value })}
+                  required
+                />
+              </div>
+              <div>
+                <Label htmlFor="booking_time">Time</Label>
+                <Input
+                  id="booking_time"
+                  data-testid="booking-time-input"
+                  type="time"
+                  value={bookingData.booking_time}
+                  onChange={(e) => setBookingData({ ...bookingData, booking_time: e.target.value })}
+                  required
+                />
+              </div>
+              <div>
+                <Label htmlFor="notes">Notes (Optional)</Label>
+                <Textarea
+                  id="notes"
+                  data-testid="booking-notes-input"
+                  value={bookingData.notes}
+                  onChange={(e) => setBookingData({ ...bookingData, notes: e.target.value })}
+                  rows={3}
+                  placeholder="Any special requirements or notes..."
+                />
+              </div>
+              <div className="flex justify-end space-x-4 pt-4">
+                <Button
+                  data-testid="cancel-booking-btn"
+                  type="button"
+                  variant="outline"
+                  onClick={() => {
+                    setShowBookModal(false);
+                    setSelectedPartner(null);
+                    resetBookingForm();
+                  }}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  data-testid="submit-booking-btn"
+                  type="submit"
+                  className="bg-blue-600 hover:bg-blue-700 text-white"
+                >
+                  Book Service
+                </Button>
+              </div>
+            </form>
+          </Card>
+        </div>
+      )}
+    </div>
+    );
+  }
+
+  // Admin view (with sidebar)
+  return (
+    <div data-testid="wellness-partners-page" className="flex h-screen bg-gray-50">
+      <Sidebar user={user} onLogout={onLogout} />
+      <div className="flex-1 overflow-auto">
+        <div className="p-8">
+          <div className="flex justify-between items-center mb-8">
+            <div>
+              <h1 className="text-3xl font-heading font-bold text-gray-900">Wellness Partners</h1>
+              <p className="text-gray-600 mt-1">Access healthcare and wellness services</p>
+            </div>
+            {["company_admin", "super_admin"].includes(user?.role) && (
+              <Button
+                data-testid="add-partner-btn"
+                onClick={() => setShowAddModal(true)}
+                className="bg-blue-600 hover:bg-blue-700 text-white"
+              >
+                <Plus className="h-4 w-4 mr-2" />
+                Add Partner
+              </Button>
+            )}
+          </div>
+
+          {/* Partners List */}
+          <h2 className="text-xl font-heading font-semibold text-gray-900 mb-4">Available Services</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {partners.length === 0 ? (
+              <Card data-testid="no-partners-message" className="p-12 text-center col-span-full">
+                <p className="text-gray-500">No wellness partners available yet.</p>
+              </Card>
+            ) : (
+              partners.map((partner) => (
+                <Card key={partner.id} data-testid={`partner-card-${partner.id}`} className="p-6 card-hover">
+                  <div className="flex items-center space-x-3 mb-4">
+                    {getServiceIcon(partner.service_type)}
+                    <h3 className="text-xl font-heading font-semibold text-gray-900">{partner.name}</h3>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-4">{partner.description}</p>
+                  <div className="space-y-2 mb-4">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-600">Service Type:</span>
+                      <span className="font-semibold capitalize">{partner.service_type.replace('_', ' ')}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-600">Availability:</span>
+                      <span className="font-semibold">{partner.availability}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-600">Pricing:</span>
+                      <span className="font-semibold">{partner.pricing}</span>
+                    </div>
+                  </div>
+                  <div className="border-t pt-4">
+                    <p className="text-xs text-gray-500">Contact: {partner.contact_email}</p>
+                    <p className="text-xs text-gray-500">{partner.contact_phone}</p>
+                  </div>
+                </Card>
+              ))
+            )}
+          </div>
+        </div>
+      </div>
+
       {/* Add Partner Modal */}
       {showAddModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
