@@ -32,7 +32,7 @@ axios.interceptors.request.use(
 );
 
 // Protected Route Component
-const ProtectedRoute = ({ children, allowedRoles }) => {
+const ProtectedRoute = ({ children, allowedRoles, user }) => {
   const token = localStorage.getItem("token");
   const userRole = localStorage.getItem("userRole");
 
@@ -41,7 +41,11 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
   }
 
   if (allowedRoles && !allowedRoles.includes(userRole)) {
-    return <Navigate to="/" replace />;
+    // Redirect to appropriate dashboard based on role
+    if (userRole === "employee") {
+      return <Navigate to="/employee-dashboard" replace />;
+    }
+    return <Navigate to="/dashboard" replace />;
   }
 
   return children;
