@@ -113,7 +113,7 @@ export default function Financials({ user, onLogout }) {
                 <h3 className="text-lg font-semibold text-gray-900">Total Premiums</h3>
                 <TrendingUp className="h-5 w-5 text-green-600" />
               </div>
-              <p className="text-4xl font-bold text-green-600">${stats?.total_premiums?.toLocaleString() || 0}</p>
+              <p className="text-4xl font-bold text-green-600">₹{stats?.total_premiums?.toLocaleString() || 0}</p>
               <p className="text-sm text-gray-600 mt-2">Total received</p>
             </Card>
 
@@ -122,7 +122,7 @@ export default function Financials({ user, onLogout }) {
                 <h3 className="text-lg font-semibold text-gray-900">Total Payouts</h3>
                 <TrendingDown className="h-5 w-5 text-red-600" />
               </div>
-              <p className="text-4xl font-bold text-red-600">${stats?.total_payouts?.toLocaleString() || 0}</p>
+              <p className="text-4xl font-bold text-red-600">₹{stats?.total_payouts?.toLocaleString() || 0}</p>
               <p className="text-sm text-gray-600 mt-2">Total paid out</p>
             </Card>
 
@@ -131,7 +131,7 @@ export default function Financials({ user, onLogout }) {
                 <h3 className="text-lg font-semibold text-gray-900">Net Balance</h3>
                 <DollarSign className="h-5 w-5 text-blue-600" />
               </div>
-              <p className="text-4xl font-bold text-blue-600">${stats?.net_balance?.toLocaleString() || 0}</p>
+              <p className="text-4xl font-bold text-blue-600">₹{stats?.net_balance?.toLocaleString() || 0}</p>
               <p className="text-sm text-gray-600 mt-2">Current balance</p>
             </Card>
           </div>

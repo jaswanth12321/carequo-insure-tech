@@ -82,7 +82,7 @@ export default function Dashboard({ user, onLogout }) {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600 font-medium">Total Claim Amount</p>
-                  <p className="text-3xl font-bold text-gray-900 mt-2">${stats?.total_claim_amount?.toLocaleString() || 0}</p>
+                  <p className="text-3xl font-bold text-gray-900 mt-2">₹{stats?.total_claim_amount?.toLocaleString() || 0}</p>
                 </div>
                 <div className="bg-purple-100 p-3 rounded-full">
                   <DollarSign className="h-6 w-6 text-purple-600" />
@@ -94,7 +94,7 @@ export default function Dashboard({ user, onLogout }) {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600 font-medium">Net Balance</p>
-                  <p className="text-3xl font-bold text-gray-900 mt-2">${stats?.net_balance?.toLocaleString() || 0}</p>
+                  <p className="text-3xl font-bold text-gray-900 mt-2">₹{stats?.net_balance?.toLocaleString() || 0}</p>
                 </div>
                 <div className="bg-indigo-100 p-3 rounded-full">
                   <TrendingUp className="h-6 w-6 text-indigo-600" />
@@ -120,7 +120,7 @@ export default function Dashboard({ user, onLogout }) {
                 <CheckCircle className="h-5 w-5 text-green-600" />
               </div>
               <p className="text-4xl font-bold text-green-600">{stats?.approved_claims || 0}</p>
-              <p className="text-sm text-gray-600 mt-2">${stats?.approved_claim_amount?.toLocaleString() || 0} paid out</p>
+              <p className="text-sm text-gray-600 mt-2">₹{stats?.approved_claim_amount?.toLocaleString() || 0} paid out</p>
             </Card>
 
             <Card data-testid="rejected-claims-card" className="p-6">
@@ -139,15 +139,15 @@ export default function Dashboard({ user, onLogout }) {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="border-l-4 border-blue-600 pl-4">
                 <p className="text-sm text-gray-600 font-medium">Total Premiums</p>
-                <p className="text-2xl font-bold text-gray-900 mt-1">${stats?.total_premiums?.toLocaleString() || 0}</p>
+                <p className="text-2xl font-bold text-gray-900 mt-1">₹{stats?.total_premiums?.toLocaleString() || 0}</p>
               </div>
               <div className="border-l-4 border-green-600 pl-4">
                 <p className="text-sm text-gray-600 font-medium">Total Payouts</p>
-                <p className="text-2xl font-bold text-gray-900 mt-1">${stats?.total_payouts?.toLocaleString() || 0}</p>
+                <p className="text-2xl font-bold text-gray-900 mt-1">₹{stats?.total_payouts?.toLocaleString() || 0}</p>
               </div>
               <div className="border-l-4 border-purple-600 pl-4">
                 <p className="text-sm text-gray-600 font-medium">Net Balance</p>
-                <p className="text-2xl font-bold text-gray-900 mt-1">${stats?.net_balance?.toLocaleString() || 0}</p>
+                <p className="text-2xl font-bold text-gray-900 mt-1">₹{stats?.net_balance?.toLocaleString() || 0}</p>
               </div>
             </div>
           </Card>
