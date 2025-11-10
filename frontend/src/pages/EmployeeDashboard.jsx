@@ -53,17 +53,21 @@ export default function EmployeeDashboard({ user, onLogout }) {
   const handleSubmitClaim = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${API}/claims`, {
-        ...claimData,
+      const response = await axios.post(`${API}/claims`, {
+        claim_type: claimData.claim_type,
         amount: parseFloat(claimData.amount),
+        description: claimData.description,
         documents: []
       });
+      console.log("Claim submitted:", response.data);
       toast.success("Claim submitted successfully");
       setShowClaimModal(false);
       resetClaimForm();
       fetchClaims();
     } catch (error) {
-      toast.error(error.response?.data?.detail || "Error submitting claim");
+      console.error("Claim error:", error);
+      const errorMsg = error.response?.data?.detail || error.message || "Error submitting claim";
+      toast.error(errorMsg);
     }
   };
 
