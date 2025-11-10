@@ -170,7 +170,7 @@ export default function EmployeeDashboard({ user, onLogout }) {
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <div>
                           <p className="text-sm text-gray-600">Amount</p>
-                          <p className="text-lg font-bold text-gray-900">${claim.amount.toLocaleString()}</p>
+                          <p className="text-lg font-bold text-gray-900">₹{claim.amount.toLocaleString()}</p>
                         </div>
                         <div>
                           <p className="text-sm text-gray-600">Submitted</p>

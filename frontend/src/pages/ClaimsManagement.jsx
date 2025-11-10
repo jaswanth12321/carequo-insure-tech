@@ -129,7 +129,7 @@ export default function ClaimsManagement({ user, onLogout }) {
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
                         <div>
                           <p className="text-sm text-gray-600">Amount</p>
-                          <p className="text-lg font-bold text-gray-900">${claim.amount.toLocaleString()}</p>
+                          <p className="text-lg font-bold text-gray-900">₹{claim.amount.toLocaleString()}</p>
                         </div>
                         <div>
                           <p className="text-sm text-gray-600">Status</p>
@@ -191,7 +191,7 @@ export default function ClaimsManagement({ user, onLogout }) {
               </div>
               <div>
                 <p className="text-sm text-gray-600">Amount</p>
-                <p className="text-2xl font-bold text-gray-900">${selectedClaim.amount.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-gray-900">₹{selectedClaim.amount.toLocaleString()}</p>
               </div>
               <div>
                 <p className="text-sm text-gray-600">Description</p>

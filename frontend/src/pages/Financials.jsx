@@ -177,7 +177,7 @@ export default function Financials({ user, onLogout }) {
                           ? "text-green-600" 
                           : "text-red-600"
                       }`}>
-                        {transaction.transaction_type === "premium_payment" ? "+" : "-"}${transaction.amount.toLocaleString()}
+                        {transaction.transaction_type === "premium_payment" ? "+" : "-"}₹{transaction.amount.toLocaleString()}
                       </p>
                       <p className="text-sm text-gray-600">
                         {new Date(transaction.transaction_date).toLocaleDateString()}
