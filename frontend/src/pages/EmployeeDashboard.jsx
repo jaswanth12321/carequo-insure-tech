@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { useNavigate, useLocation } from "react-router-dom";
-import { Shield, FileText, Heart, Plus, Calendar, LogOut } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import EmployeeHeader from "@/components/EmployeeHeader";
+import { FileText, Heart, Plus, Calendar } from "lucide-react";
 import { toast } from "sonner";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
