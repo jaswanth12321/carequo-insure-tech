@@ -14,6 +14,7 @@ const API = `${BACKEND_URL}/api`;
 
 export default function EmployeeDashboard({ user, onLogout }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const [claims, setClaims] = useState([]);
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
