@@ -235,21 +235,37 @@ export default function LandingPage({ user, setUser }) {
                 />
               </div>
               {!isLogin && (
-                <div>
-                  <Label htmlFor="role">Role</Label>
-                  <select
-                    id="role"
-                    data-testid="role-select"
-                    value={formData.role}
-                    onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                    className="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  >
-                    <option value="employee">Employee</option>
-                    <option value="hr_manager">HR Manager</option>
-                    <option value="company_admin">Company Admin</option>
-                    <option value="super_admin">Super Admin</option>
-                  </select>
-                </div>
+                <>
+                  <div>
+                    <Label htmlFor="role">Role</Label>
+                    <select
+                      id="role"
+                      data-testid="role-select"
+                      value={formData.role}
+                      onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                      className="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                      <option value="employee">Employee</option>
+                      <option value="hr_manager">HR Manager</option>
+                      <option value="company_admin">Company Admin</option>
+                      <option value="super_admin">Super Admin</option>
+                    </select>
+                  </div>
+                  {(formData.role === "employee" || formData.role === "hr_manager" || formData.role === "company_admin") && (
+                    <div>
+                      <Label htmlFor="company_id">Company ID</Label>
+                      <Input
+                        id="company_id"
+                        data-testid="company-id-input"
+                        type="text"
+                        value={formData.company_id}
+                        onChange={(e) => setFormData({ ...formData, company_id: e.target.value })}
+                        placeholder="Enter company ID"
+                        className="mt-1"
+                      />
+                    </div>
+                  )}
+                </>
               )}
               <Button
                 data-testid="submit-auth-btn"
