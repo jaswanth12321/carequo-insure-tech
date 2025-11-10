@@ -246,6 +246,22 @@ async def register(user_data: UserCreate):
     
     await db.users.insert_one(user.model_dump())
     
+    # Auto-create employee profile for employee role users
+    if user_data.role == "employee" and user_data.company_id:
+        employee = Employee(
+            user_id=user.id,
+            company_id=user_data.company_id,
+            employee_id=f"EMP-{str(uuid.uuid4())[:8].upper()}",
+            department="General",
+            designation="Employee",
+            date_of_joining=datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+            date_of_birth="1990-01-01",
+            phone="0000000000",
+            emergency_contact="0000000000",
+            status="active"
+        )
+        await db.employees.insert_one(employee.model_dump())
+    
     # Create access token
     access_token = create_access_token({"sub": user.id, "role": user.role})
     
