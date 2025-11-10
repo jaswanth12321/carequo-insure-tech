@@ -19,7 +19,8 @@ export default function LandingPage({ user, setUser }) {
     email: "",
     password: "",
     name: "",
-    role: "employee"
+    role: "employee",
+    company_id: "default-company"
   });
   const [loading, setLoading] = useState(false);
 
