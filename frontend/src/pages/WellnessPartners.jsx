@@ -308,8 +308,8 @@ export default function WellnessPartners({ user, onLogout }) {
         </div>
       )}
     </div>
-    );
-  }
+  );
+}
 
   // Admin view (with sidebar)
   return (
