@@ -382,9 +382,10 @@ async def create_claim(claim_data: ClaimCreate, current_user: dict = Depends(get
     employee = await db.employees.find_one({"user_id": current_user["id"]}, {"_id": 0})
     if not employee:
         # Auto-create employee profile
+        company_id = current_user.get("company_id") or "default-company"
         employee_data = Employee(
             user_id=current_user["id"],
-            company_id=current_user.get("company_id", "default-company"),
+            company_id=company_id,
             employee_id=f"EMP-{str(uuid.uuid4())[:8].upper()}",
             department="General",
             designation="Employee",
@@ -475,9 +476,10 @@ async def create_booking(booking_data: BookingCreate, current_user: dict = Depen
     employee = await db.employees.find_one({"user_id": current_user["id"]}, {"_id": 0})
     if not employee:
         # Auto-create employee profile
+        company_id = current_user.get("company_id") or "default-company"
         employee_data = Employee(
             user_id=current_user["id"],
-            company_id=current_user.get("company_id", "default-company"),
+            company_id=company_id,
             employee_id=f"EMP-{str(uuid.uuid4())[:8].upper()}",
             department="General",
             designation="Employee",
