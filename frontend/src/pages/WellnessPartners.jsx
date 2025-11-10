@@ -14,6 +14,8 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 export default function WellnessPartners({ user, onLogout }) {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [partners, setPartners] = useState([]);
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
