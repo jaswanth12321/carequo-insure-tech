@@ -51,12 +51,17 @@ export default function LandingPage({ user, setUser }) {
     }
   };
 
-  if (user) {
-    if (user.role === "employee") {
-      navigate("/employee-dashboard");
-    } else {
-      navigate("/dashboard");
+  useEffect(() => {
+    if (user) {
+      if (user.role === "employee") {
+        navigate("/employee-dashboard");
+      } else {
+        navigate("/dashboard");
+      }
     }
+  }, [user, navigate]);
+
+  if (user) {
     return null;
   }
 
