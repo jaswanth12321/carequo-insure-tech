@@ -471,9 +471,24 @@ async def get_wellness_partner(partner_id: str):
 # Booking endpoints
 @api_router.post("/bookings", response_model=Booking)
 async def create_booking(booking_data: BookingCreate, current_user: dict = Depends(get_current_user)):
+    # Get employee data - auto-create if not exists
     employee = await db.employees.find_one({"user_id": current_user["id"]}, {"_id": 0})
     if not employee:
-        raise HTTPException(status_code=404, detail="Employee profile not found")
+        # Auto-create employee profile
+        employee_data = Employee(
+            user_id=current_user["id"],
+            company_id=current_user.get("company_id", "default-company"),
+            employee_id=f"EMP-{str(uuid.uuid4())[:8].upper()}",
+            department="General",
+            designation="Employee",
+            date_of_joining=datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+            date_of_birth="1990-01-01",
+            phone="0000000000",
+            emergency_contact="0000000000",
+            status="active"
+        )
+        await db.employees.insert_one(employee_data.model_dump())
+        employee = employee_data.model_dump()
     
     booking = Booking(
         **booking_data.model_dump(),
