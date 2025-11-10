@@ -8,6 +8,7 @@ export default function Sidebar({ user, onLogout }) {
 
   const menuItems = [
     { name: "Dashboard", icon: LayoutDashboard, path: "/dashboard", roles: ["company_admin", "hr_manager", "super_admin"] },
+    { name: "Dashboard", icon: LayoutDashboard, path: "/employee-dashboard", roles: ["employee"] },
     { name: "Employees", icon: Users, path: "/employees", roles: ["company_admin", "hr_manager"] },
     { name: "Claims", icon: FileText, path: "/claims", roles: ["company_admin", "hr_manager"] },
     { name: "Financials", icon: DollarSign, path: "/financials", roles: ["company_admin", "super_admin"] },
