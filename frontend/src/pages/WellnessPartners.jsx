@@ -6,9 +6,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import Sidebar from "@/components/Sidebar";
-import { Heart, Video, Users as UsersIcon, Dumbbell, Brain, Plus, Calendar, Shield, LogOut, FileText } from "lucide-react";
+import EmployeeHeader from "@/components/EmployeeHeader";
+import { Heart, Video, Users as UsersIcon, Dumbbell, Brain, Plus, Calendar } from "lucide-react";
 import { toast } from "sonner";
-import { useNavigate, useLocation } from "react-router-dom";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
