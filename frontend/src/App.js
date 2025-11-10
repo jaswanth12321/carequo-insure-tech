@@ -104,7 +104,7 @@ function App() {
           <Route
             path="/dashboard"
             element={
-              <ProtectedRoute allowedRoles={["company_admin", "hr_manager", "super_admin"]}>
+              <ProtectedRoute allowedRoles={["company_admin", "hr_manager", "super_admin"]} user={user}>
                 <Dashboard user={user} onLogout={handleLogout} />
               </ProtectedRoute>
             }
@@ -112,7 +112,7 @@ function App() {
           <Route
             path="/employees"
             element={
-              <ProtectedRoute allowedRoles={["company_admin", "hr_manager"]}>
+              <ProtectedRoute allowedRoles={["company_admin", "hr_manager"]} user={user}>
                 <EmployeeManagement user={user} onLogout={handleLogout} />
               </ProtectedRoute>
             }
@@ -120,7 +120,7 @@ function App() {
           <Route
             path="/claims"
             element={
-              <ProtectedRoute allowedRoles={["company_admin", "hr_manager"]}>
+              <ProtectedRoute allowedRoles={["company_admin", "hr_manager"]} user={user}>
                 <ClaimsManagement user={user} onLogout={handleLogout} />
               </ProtectedRoute>
             }
@@ -128,7 +128,7 @@ function App() {
           <Route
             path="/financials"
             element={
-              <ProtectedRoute allowedRoles={["company_admin", "super_admin"]}>
+              <ProtectedRoute allowedRoles={["company_admin", "super_admin"]} user={user}>
                 <Financials user={user} onLogout={handleLogout} />
               </ProtectedRoute>
             }
@@ -136,7 +136,7 @@ function App() {
           <Route
             path="/wellness"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute user={user}>
                 <WellnessPartners user={user} onLogout={handleLogout} />
               </ProtectedRoute>
             }
@@ -144,7 +144,7 @@ function App() {
           <Route
             path="/employee-dashboard"
             element={
-              <ProtectedRoute allowedRoles={["employee"]}>
+              <ProtectedRoute allowedRoles={["employee"]} user={user}>
                 <EmployeeDashboard user={user} onLogout={handleLogout} />
               </ProtectedRoute>
             }
