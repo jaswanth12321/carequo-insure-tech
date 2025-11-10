@@ -6,21 +6,20 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { toast } from "sonner";
-import { Shield, Users, FileText, Heart, TrendingUp, CheckCircle } from "lucide-react";
+import { Shield, Users, FileText, Heart, TrendingUp, CheckCircle, BarChart3, Building2, Mail, Phone, MapPin } from "lucide-react";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 export default function LandingPage({ user, setUser }) {
   const navigate = useNavigate();
-  const [showAuth, setShowAuth] = useState(false);
-  const [isLogin, setIsLogin] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+  const [modalType, setModalType] = useState("login"); // 'login' or 'signup'
   const [formData, setFormData] = useState({
     email: "",
     password: "",
     name: "",
-    role: "employee",
-    company_id: "default-company"
+    role: "employee"
   });
   const [loading, setLoading] = useState(false);
 
@@ -29,14 +28,14 @@ export default function LandingPage({ user, setUser }) {
     setLoading(true);
 
     try {
-      const endpoint = isLogin ? "/auth/login" : "/auth/register";
+      const endpoint = modalType === "login" ? "/auth/login" : "/auth/register";
       const response = await axios.post(`${API}${endpoint}`, formData);
       
       localStorage.setItem("token", response.data.access_token);
       localStorage.setItem("userRole", response.data.user.role);
       setUser(response.data.user);
       
-      toast.success(isLogin ? "Login successful!" : "Registration successful!");
+      toast.success(modalType === "login" ? "Login successful!" : "Registration successful!");
       
       // Redirect based on role
       if (response.data.user.role === "employee") {
@@ -49,6 +48,11 @@ export default function LandingPage({ user, setUser }) {
     } finally {
       setLoading(false);
     }
+  };
+
+  const openModal = (type) => {
+    setModalType(type);
+    setShowModal(true);
   };
 
   useEffect(() => {
@@ -66,21 +70,38 @@ export default function LandingPage({ user, setUser }) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <Shield className="h-8 w-8 text-blue-600" />
-            <span className="text-2xl font-heading font-bold gradient-text">CareQuo</span>
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center space-x-3">
+              <div className="bg-gradient-to-br from-blue-600 to-indigo-600 p-2 rounded-xl">
+                <Shield className="h-7 w-7 text-white" />
+              </div>
+              <div>
+                <span className="text-2xl font-heading font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">CareQuo</span>
+                <p className="text-xs text-gray-500 font-medium">Enterprise Insurance Platform</p>
+              </div>
+            </div>
+            <div className="flex items-center space-x-3">
+              <Button
+                data-testid="login-btn"
+                onClick={() => openModal("login")}
+                variant="ghost"
+                className="font-semibold"
+              >
+                Login
+              </Button>
+              <Button
+                data-testid="signup-btn"
+                onClick={() => openModal("signup")}
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold px-6 shadow-lg shadow-blue-500/30"
+              >
+                Get Started
+              </Button>
+            </div>
           </div>
-          <Button
-            data-testid="get-started-btn"
-            onClick={() => setShowAuth(true)}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 btn-animate"
-          >
-            Get Started
-          </Button>
         </div>
       </header>
 
@@ -88,78 +109,122 @@ export default function LandingPage({ user, setUser }) {
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center fade-in">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-gray-900 mb-6">
-              Enterprise Insurance Management
-              <span className="block gradient-text mt-2">Simplified for Corporate Teams</span>
+            <div className="inline-block mb-4 px-4 py-2 bg-blue-100 rounded-full">
+              <span className="text-blue-700 font-semibold text-sm">🏆 Trusted by 500+ Enterprises</span>
+            </div>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-heading font-bold text-gray-900 mb-6 leading-tight">
+              Enterprise Insurance
+              <span className="block bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mt-2">
+                Reimagined for Modern Teams
+              </span>
             </h1>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Comprehensive insurance platform for corporate companies with employee management,
-              claims processing, financial tracking, and wellness partner integration.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
+              Comprehensive insurance platform for corporate companies with intelligent employee management,
+              automated claims processing, real-time financial tracking, and integrated wellness services.
             </p>
-            <Button
-              data-testid="hero-get-started-btn"
-              onClick={() => setShowAuth(true)}
-              size="lg"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg btn-animate"
-            >
-              Start Managing Today
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                data-testid="hero-get-started-btn"
+                onClick={() => openModal("signup")}
+                size="lg"
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-7 text-lg font-semibold shadow-2xl shadow-blue-500/30"
+              >
+                Start Free Trial
+              </Button>
+              <Button
+                onClick={() => openModal("login")}
+                size="lg"
+                variant="outline"
+                className="border-2 border-gray-300 hover:border-blue-600 px-10 py-7 text-lg font-semibold"
+              >
+                View Demo
+              </Button>
+            </div>
+            <div className="mt-8 flex items-center justify-center gap-8 text-sm text-gray-500">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-5 w-5 text-green-600" />
+                <span>No credit card required</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-5 w-5 text-green-600" />
+                <span>14-day free trial</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-5 w-5 text-green-600" />
+                <span>Cancel anytime</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-heading font-bold text-center mb-12 text-gray-900">
-            Everything You Need to Manage Corporate Insurance
-          </h2>
+          <div className="text-center mb-16">
+            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">POWERFUL FEATURES</span>
+            <h2 className="text-4xl sm:text-5xl font-heading font-bold mt-3 text-gray-900">
+              Everything You Need in One Platform
+            </h2>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card data-testid="feature-employee-management" className="p-6 card-hover">
-              <Users className="h-12 w-12 text-blue-600 mb-4" />
-              <h3 className="text-xl font-heading font-semibold mb-2">Employee Management</h3>
-              <p className="text-gray-600">
-                Add, manage, and assign roles to employees. Track employee status and maintain comprehensive profiles.
+            <Card data-testid="feature-employee-management" className="p-8 border-2 hover:border-blue-200 hover:shadow-2xl transition-all duration-300">
+              <div className="bg-blue-100 w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                <Users className="h-7 w-7 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-heading font-bold mb-3 text-gray-900">Employee Management</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Comprehensive employee profiles with role-based access, department tracking, and real-time status monitoring.
               </p>
             </Card>
 
-            <Card data-testid="feature-claims-processing" className="p-6 card-hover">
-              <FileText className="h-12 w-12 text-green-600 mb-4" />
-              <h3 className="text-xl font-heading font-semibold mb-2">Claims Processing</h3>
-              <p className="text-gray-600">
-                Streamlined claims submission, review, and approval workflow with document management.
+            <Card data-testid="feature-claims-processing" className="p-8 border-2 hover:border-green-200 hover:shadow-2xl transition-all duration-300">
+              <div className="bg-green-100 w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                <FileText className="h-7 w-7 text-green-600" />
+              </div>
+              <h3 className="text-xl font-heading font-bold mb-3 text-gray-900">Automated Claims</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Intelligent claims workflow with automated routing, document management, and instant approval notifications.
               </p>
             </Card>
 
-            <Card data-testid="feature-wellness-partners" className="p-6 card-hover">
-              <Heart className="h-12 w-12 text-pink-600 mb-4" />
-              <h3 className="text-xl font-heading font-semibold mb-2">Wellness Partners</h3>
-              <p className="text-gray-600">
-                Access to video consultations, elder care, gym partnerships, and mental health services.
+            <Card data-testid="feature-analytics" className="p-8 border-2 hover:border-purple-200 hover:shadow-2xl transition-all duration-300">
+              <div className="bg-purple-100 w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                <BarChart3 className="h-7 w-7 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-heading font-bold mb-3 text-gray-900">Advanced Analytics</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Real-time dashboards with interactive charts, trend analysis, and predictive insights for better decisions.
               </p>
             </Card>
 
-            <Card data-testid="feature-financial-tracking" className="p-6 card-hover">
-              <TrendingUp className="h-12 w-12 text-indigo-600 mb-4" />
-              <h3 className="text-xl font-heading font-semibold mb-2">Financial Dashboard</h3>
-              <p className="text-gray-600">
-                Track premiums, payouts, and financial health with comprehensive reporting.
+            <Card data-testid="feature-wellness-partners" className="p-8 border-2 hover:border-pink-200 hover:shadow-2xl transition-all duration-300">
+              <div className="bg-pink-100 w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                <Heart className="h-7 w-7 text-pink-600" />
+              </div>
+              <h3 className="text-xl font-heading font-bold mb-3 text-gray-900">Wellness Ecosystem</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Integrated wellness partners including telemedicine, elder care, fitness programs, and mental health services.
               </p>
             </Card>
 
-            <Card data-testid="feature-role-based-access" className="p-6 card-hover">
-              <Shield className="h-12 w-12 text-purple-600 mb-4" />
-              <h3 className="text-xl font-heading font-semibold mb-2">Role-Based Access</h3>
-              <p className="text-gray-600">
-                Secure access control with roles for Super Admin, Company Admin, HR Manager, and Employees.
+            <Card data-testid="feature-financial" className="p-8 border-2 hover:border-indigo-200 hover:shadow-2xl transition-all duration-300">
+              <div className="bg-indigo-100 w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                <TrendingUp className="h-7 w-7 text-indigo-600" />
+              </div>
+              <h3 className="text-xl font-heading font-bold mb-3 text-gray-900">Financial Control</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Complete financial oversight with premium tracking, payout management, and comprehensive audit trails.
               </p>
             </Card>
 
-            <Card data-testid="feature-real-time-insights" className="p-6 card-hover">
-              <CheckCircle className="h-12 w-12 text-teal-600 mb-4" />
-              <h3 className="text-xl font-heading font-semibold mb-2">Real-time Insights</h3>
-              <p className="text-gray-600">
-                Live dashboards with statistics on claims, employees, and financial metrics.
+            <Card data-testid="feature-branded" className="p-8 border-2 hover:border-orange-200 hover:shadow-2xl transition-all duration-300">
+              <div className="bg-orange-100 w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                <Building2 className="h-7 w-7 text-orange-600" />
+              </div>
+              <h3 className="text-xl font-heading font-bold mb-3 text-gray-900">White-Label Ready</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Custom branding with your company logo, colors, and identity for a seamless corporate experience.
               </p>
             </Card>
           </div>
@@ -167,41 +232,104 @@ export default function LandingPage({ user, setUser }) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-green-600">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-heading font-bold text-white mb-6">
-            Ready to Transform Your Insurance Management?
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]"></div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-4xl sm:text-5xl font-heading font-bold text-white mb-6">
+            Ready to Transform Your Insurance Operations?
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Join leading companies using CareQuo to simplify their insurance operations.
+          <p className="text-xl text-blue-100 mb-10 leading-relaxed">
+            Join industry leaders who trust CareQuo to manage their corporate insurance programs.
           </p>
           <Button
             data-testid="cta-get-started-btn"
-            onClick={() => setShowAuth(true)}
+            onClick={() => openModal("signup")}
             size="lg"
-            className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-6 text-lg btn-animate"
+            className="bg-white text-blue-600 hover:bg-gray-100 px-12 py-7 text-lg font-semibold shadow-2xl"
           >
-            Get Started Now
+            Start Your Free Trial
           </Button>
         </div>
       </section>
 
+      {/* Footer */}
+      <footer className="bg-gray-900 text-gray-300 py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-12 mb-12">
+            <div>
+              <div className="flex items-center space-x-2 mb-4">
+                <div className="bg-gradient-to-br from-blue-600 to-indigo-600 p-2 rounded-lg">
+                  <Shield className="h-6 w-6 text-white" />
+                </div>
+                <span className="text-xl font-heading font-bold text-white">CareQuo</span>
+              </div>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Enterprise-grade insurance management platform designed for modern corporate teams.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-white mb-4">Product</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:text-blue-400 transition-colors">Features</a></li>
+                <li><a href="#" className="hover:text-blue-400 transition-colors">Pricing</a></li>
+                <li><a href="#" className="hover:text-blue-400 transition-colors">Security</a></li>
+                <li><a href="#" className="hover:text-blue-400 transition-colors">Integrations</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-white mb-4">Company</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:text-blue-400 transition-colors">About Us</a></li>
+                <li><a href="#" className="hover:text-blue-400 transition-colors">Careers</a></li>
+                <li><a href="#" className="hover:text-blue-400 transition-colors">Blog</a></li>
+                <li><a href="#" className="hover:text-blue-400 transition-colors">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-white mb-4">Contact</h4>
+              <ul className="space-y-3 text-sm">
+                <li className="flex items-center gap-2">
+                  <Mail className="h-4 w-4" />
+                  <span>support@carequo.com</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Phone className="h-4 w-4" />
+                  <span>+1 (555) 123-4567</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4" />
+                  <span>San Francisco, CA</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
+            <p>&copy; 2025 CareQuo. All rights reserved. | Privacy Policy | Terms of Service</p>
+          </div>
+        </div>
+      </footer>
+
       {/* Auth Modal */}
-      {showAuth && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
-          <Card data-testid="auth-modal" className="w-full max-w-md p-8 relative">
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+          <Card data-testid="auth-modal" className="w-full max-w-md p-8 relative shadow-2xl">
             <button
               data-testid="close-auth-modal-btn"
-              onClick={() => setShowAuth(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+              onClick={() => setShowModal(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl"
             >
               ✕
             </button>
-            <h2 className="text-2xl font-heading font-bold mb-6 text-center">
-              {isLogin ? "Login to CareQuo" : "Create Account"}
-            </h2>
+            <div className="text-center mb-6">
+              <h2 className="text-3xl font-heading font-bold text-gray-900">
+                {modalType === "login" ? "Welcome Back" : "Get Started"}
+              </h2>
+              <p className="text-gray-600 mt-2">
+                {modalType === "login" ? "Login to your CareQuo account" : "Create your CareQuo account"}
+              </p>
+            </div>
             <form data-testid="auth-form" onSubmit={handleSubmit} className="space-y-4">
-              {!isLogin && (
+              {modalType === "signup" && (
                 <div>
                   <Label htmlFor="name">Full Name</Label>
                   <Input
@@ -210,13 +338,13 @@ export default function LandingPage({ user, setUser }) {
                     type="text"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    required={!isLogin}
-                    className="mt-1"
+                    required={modalType === "signup"}
+                    className="mt-1 h-11"
                   />
                 </div>
               )}
               <div>
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">Email Address</Label>
                 <Input
                   id="email"
                   data-testid="email-input"
@@ -224,7 +352,7 @@ export default function LandingPage({ user, setUser }) {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
-                  className="mt-1"
+                  className="mt-1 h-11"
                 />
               </div>
               <div>
@@ -236,59 +364,43 @@ export default function LandingPage({ user, setUser }) {
                   value={formData.password}
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                   required
-                  className="mt-1"
+                  className="mt-1 h-11"
                 />
               </div>
-              {!isLogin && (
-                <>
-                  <div>
-                    <Label htmlFor="role">Role</Label>
-                    <select
-                      id="role"
-                      data-testid="role-select"
-                      value={formData.role}
-                      onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                      className="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                      <option value="employee">Employee</option>
-                      <option value="hr_manager">HR Manager</option>
-                      <option value="company_admin">Company Admin</option>
-                      <option value="super_admin">Super Admin</option>
-                    </select>
-                  </div>
-                  {(formData.role === "employee" || formData.role === "hr_manager" || formData.role === "company_admin") && (
-                    <div>
-                      <Label htmlFor="company_id">Company ID</Label>
-                      <Input
-                        id="company_id"
-                        data-testid="company-id-input"
-                        type="text"
-                        value={formData.company_id}
-                        onChange={(e) => setFormData({ ...formData, company_id: e.target.value })}
-                        placeholder="Enter company ID"
-                        className="mt-1"
-                      />
-                    </div>
-                  )}
-                </>
+              {modalType === "signup" && (
+                <div>
+                  <Label htmlFor="role">Role</Label>
+                  <select
+                    id="role"
+                    data-testid="role-select"
+                    value={formData.role}
+                    onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                    className="w-full mt-1 px-3 py-2.5 h-11 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="employee">Employee</option>
+                    <option value="hr_manager">HR Manager</option>
+                    <option value="company_admin">Company Admin</option>
+                    <option value="super_admin">Super Admin</option>
+                  </select>
+                </div>
               )}
               <Button
                 data-testid="submit-auth-btn"
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white h-12 text-base font-semibold"
                 disabled={loading}
               >
-                {loading ? "Processing..." : isLogin ? "Login" : "Register"}
+                {loading ? "Processing..." : modalType === "login" ? "Login" : "Create Account"}
               </Button>
             </form>
-            <p className="text-center mt-4 text-sm text-gray-600">
-              {isLogin ? "Don't have an account? " : "Already have an account? "}
+            <p className="text-center mt-6 text-sm text-gray-600">
+              {modalType === "login" ? "Don't have an account? " : "Already have an account? "}
               <button
                 data-testid="toggle-auth-mode-btn"
-                onClick={() => setIsLogin(!isLogin)}
+                onClick={() => setModalType(modalType === "login" ? "signup" : "login")}
                 className="text-blue-600 hover:underline font-semibold"
               >
-                {isLogin ? "Register" : "Login"}
+                {modalType === "login" ? "Sign Up" : "Login"}
               </button>
             </p>
           </Card>
