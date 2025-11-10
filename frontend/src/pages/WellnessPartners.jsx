@@ -241,10 +241,9 @@ export default function WellnessPartners({ user, onLogout }) {
             )}
           </div>
         </div>
-      </div>
-
-      {/* Modals */}
-      {showBookModal && selectedPartner && (
+        
+        {/* Booking Modal */}
+        {showBookModal && selectedPartner && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
           <Card data-testid="book-service-modal" className="w-full max-w-md p-8">
             <h2 className="text-2xl font-heading font-bold mb-6">Book {selectedPartner.name}</h2>
