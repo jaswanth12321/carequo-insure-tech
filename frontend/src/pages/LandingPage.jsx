@@ -587,8 +587,26 @@ export default function LandingPage({ user, setUser }) {
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-6 text-center text-sm text-gray-400">
-            <p>&copy; 2025 CareQuo. All rights reserved. | Privacy Policy | Terms of Service</p>
+          <div className="border-t border-gray-800 pt-6">
+            <div className="flex flex-wrap items-center justify-center gap-6 mb-4">
+              <div className="flex items-center gap-2 text-gray-400 text-xs">
+                <span className="text-green-500">✓</span>
+                <span>SOC 2 Type II</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-400 text-xs">
+                <span className="text-green-500">✓</span>
+                <span>PCI DSS Compliant</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-400 text-xs">
+                <span className="text-green-500">✓</span>
+                <span>HIPAA Compliant</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-400 text-xs">
+                <span className="text-green-500">✓</span>
+                <span>256-bit SSL Encryption</span>
+              </div>
+            </div>
+            <p className="text-center text-sm text-gray-400">&copy; 2025 CareQuo. All rights reserved. | Privacy Policy | Terms of Service</p>
           </div>
         </div>
       </footer>
