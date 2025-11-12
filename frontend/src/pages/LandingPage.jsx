@@ -118,7 +118,7 @@ export default function LandingPage({ user, setUser }) {
                 Reimagined for Modern Teams
               </span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6 leading-relaxed">
               Comprehensive insurance platform for corporate companies with intelligent employee management,
               automated claims processing, real-time financial tracking, and integrated wellness services.
             </p>
@@ -127,7 +127,7 @@ export default function LandingPage({ user, setUser }) {
                 data-testid="hero-get-started-btn"
                 onClick={() => openModal("signup")}
                 size="lg"
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-7 text-lg font-semibold shadow-2xl shadow-blue-500/30"
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-6 text-lg font-semibold shadow-2xl shadow-blue-500/30"
               >
                 Start Free Trial
               </Button>
@@ -135,12 +135,12 @@ export default function LandingPage({ user, setUser }) {
                 onClick={() => openModal("login")}
                 size="lg"
                 variant="outline"
-                className="border-2 border-gray-300 hover:border-blue-600 px-10 py-7 text-lg font-semibold"
+                className="border-2 border-gray-300 hover:border-blue-600 px-8 py-6 text-lg font-semibold"
               >
                 View Demo
               </Button>
             </div>
-            <div className="mt-8 flex items-center justify-center gap-8 text-sm text-gray-500">
+            <div className="mt-6 flex items-center justify-center gap-8 text-sm text-gray-500">
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-5 w-5 text-green-600" />
                 <span>No credit card required</span>
