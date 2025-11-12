@@ -412,8 +412,8 @@ export default function LandingPage({ user, setUser }) {
             </Card>
           </div>
 
-          <div className="text-center mt-12">
-            <p className="text-gray-600 text-lg">
+          <div className="text-center mt-8">
+            <p className="text-gray-600">
               <span className="font-bold text-blue-600">4.9/5</span> average rating from <span className="font-semibold">500+ companies</span>
             </p>
           </div>
