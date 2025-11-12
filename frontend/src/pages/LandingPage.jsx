@@ -178,11 +178,11 @@ export default function LandingPage({ user, setUser }) {
               </p>
             </Card>
 
-            <Card data-testid="feature-claims-processing" className="p-8 border-2 hover:border-green-200 hover:shadow-2xl transition-all duration-300">
-              <div className="bg-green-100 w-14 h-14 rounded-xl flex items-center justify-center mb-6">
-                <FileText className="h-7 w-7 text-green-600" />
+            <Card data-testid="feature-claims-processing" className="p-6 border-2 hover:border-green-200 hover:shadow-2xl transition-all duration-300">
+              <div className="bg-green-100 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+                <FileText className="h-6 w-6 text-green-600" />
               </div>
-              <h3 className="text-xl font-heading font-bold mb-3 text-gray-900">Automated Claims</h3>
+              <h3 className="text-lg font-heading font-bold mb-2 text-gray-900">Automated Claims</h3>
               <p className="text-gray-600 leading-relaxed">
                 Intelligent claims workflow with automated routing, document management, and instant approval notifications.
               </p>
