@@ -218,11 +218,11 @@ export default function LandingPage({ user, setUser }) {
               </p>
             </Card>
 
-            <Card data-testid="feature-branded" className="p-8 border-2 hover:border-orange-200 hover:shadow-2xl transition-all duration-300">
-              <div className="bg-orange-100 w-14 h-14 rounded-xl flex items-center justify-center mb-6">
-                <Building2 className="h-7 w-7 text-orange-600" />
+            <Card data-testid="feature-branded" className="p-6 border-2 hover:border-orange-200 hover:shadow-2xl transition-all duration-300">
+              <div className="bg-orange-100 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+                <Building2 className="h-6 w-6 text-orange-600" />
               </div>
-              <h3 className="text-xl font-heading font-bold mb-3 text-gray-900">White-Label Ready</h3>
+              <h3 className="text-lg font-heading font-bold mb-2 text-gray-900">White-Label Ready</h3>
               <p className="text-gray-600 leading-relaxed">
                 Custom branding with your company logo, colors, and identity for a seamless corporate experience.
               </p>
