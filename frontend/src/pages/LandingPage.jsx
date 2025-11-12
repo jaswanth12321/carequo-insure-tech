@@ -492,7 +492,7 @@ export default function LandingPage({ user, setUser }) {
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
+          <div className="border-t border-gray-800 pt-6 text-center text-sm text-gray-400">
             <p>&copy; 2025 CareQuo. All rights reserved. | Privacy Policy | Terms of Service</p>
           </div>
         </div>
