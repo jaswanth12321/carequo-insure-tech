@@ -124,7 +124,12 @@ html {
   animation: scroll 20s linear infinite;
 }
 
-.animate-scroll:hover {
+.animate-scroll-slow {
+  animation: scroll 40s linear infinite;
+}
+
+.animate-scroll:hover,
+.animate-scroll-slow:hover {
   animation-play-state: paused;
 }
 
