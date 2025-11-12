@@ -318,7 +318,7 @@ export default function LandingPage({ user, setUser }) {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {[
               { name: "HDFC Life Insurance", logo: "🏢" },
               { name: "ICICI Prudential", logo: "🏦" },
@@ -331,9 +331,9 @@ export default function LandingPage({ user, setUser }) {
               { name: "Star Health Insurance", logo: "⭐" },
               { name: "Reliance General Insurance", logo: "🏢" }
             ].map((partner, index) => (
-              <Card key={index} className="p-6 flex flex-col items-center justify-center hover:shadow-lg transition-all duration-300 border-2 hover:border-blue-200">
-                <div className="text-5xl mb-3">{partner.logo}</div>
-                <p className="text-sm font-semibold text-gray-700 text-center">{partner.name}</p>
+              <Card key={index} className="p-4 flex flex-col items-center justify-center hover:shadow-lg transition-all duration-300 border-2 hover:border-blue-200">
+                <div className="text-4xl mb-2">{partner.logo}</div>
+                <p className="text-xs font-semibold text-gray-700 text-center">{partner.name}</p>
               </Card>
             ))}
           </div>
