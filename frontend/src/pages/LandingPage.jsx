@@ -167,12 +167,12 @@ export default function LandingPage({ user, setUser }) {
               Everything You Need in One Platform
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card data-testid="feature-employee-management" className="p-8 border-2 hover:border-blue-200 hover:shadow-2xl transition-all duration-300">
-              <div className="bg-blue-100 w-14 h-14 rounded-xl flex items-center justify-center mb-6">
-                <Users className="h-7 w-7 text-blue-600" />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Card data-testid="feature-employee-management" className="p-6 border-2 hover:border-blue-200 hover:shadow-2xl transition-all duration-300">
+              <div className="bg-blue-100 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+                <Users className="h-6 w-6 text-blue-600" />
               </div>
-              <h3 className="text-xl font-heading font-bold mb-3 text-gray-900">Employee Management</h3>
+              <h3 className="text-lg font-heading font-bold mb-2 text-gray-900">Employee Management</h3>
               <p className="text-gray-600 leading-relaxed">
                 Comprehensive employee profiles with role-based access, department tracking, and real-time status monitoring.
               </p>
