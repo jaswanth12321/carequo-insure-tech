@@ -341,16 +341,16 @@ export default function LandingPage({ user, setUser }) {
       </section>
 
       {/* Client Testimonials Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-indigo-50">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-indigo-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">What Our Clients Say</span>
-            <h2 className="text-3xl sm:text-4xl font-heading font-bold mt-3 text-gray-900">
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold mt-2 text-gray-900">
               Trusted by HR Leaders Across Industries
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             <Card className="p-8 hover:shadow-2xl transition-all duration-300">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
