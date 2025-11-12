@@ -351,62 +351,62 @@ export default function LandingPage({ user, setUser }) {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="p-8 hover:shadow-2xl transition-all duration-300">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+            <Card className="p-6 hover:shadow-2xl transition-all duration-300">
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
                   R
                 </div>
-                <div className="ml-4">
-                  <p className="font-bold text-gray-900">Rajesh Kumar</p>
-                  <p className="text-sm text-gray-600">HR Director, Tech Solutions Ltd</p>
+                <div className="ml-3">
+                  <p className="font-bold text-gray-900 text-sm">Rajesh Kumar</p>
+                  <p className="text-xs text-gray-600">HR Director, Tech Solutions Ltd</p>
                 </div>
               </div>
-              <div className="mb-4">
-                <div className="flex gap-1 text-yellow-500">
+              <div className="mb-3">
+                <div className="flex gap-1 text-yellow-500 text-sm">
                   ⭐⭐⭐⭐⭐
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-sm text-gray-700 leading-relaxed">
                 "CareQuo has revolutionized how we manage employee insurance. The automated claims processing saves us hours every week, and our employees love the wellness partner integration."
               </p>
             </Card>
 
-            <Card className="p-8 hover:shadow-2xl transition-all duration-300">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-600 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+            <Card className="p-6 hover:shadow-2xl transition-all duration-300">
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 bg-gradient-to-br from-green-600 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
                   P
                 </div>
-                <div className="ml-4">
-                  <p className="font-bold text-gray-900">Priya Sharma</p>
-                  <p className="text-sm text-gray-600">VP Operations, Manufacturing Co</p>
+                <div className="ml-3">
+                  <p className="font-bold text-gray-900 text-sm">Priya Sharma</p>
+                  <p className="text-xs text-gray-600">VP Operations, Manufacturing Co</p>
                 </div>
               </div>
-              <div className="mb-4">
-                <div className="flex gap-1 text-yellow-500">
+              <div className="mb-3">
+                <div className="flex gap-1 text-yellow-500 text-sm">
                   ⭐⭐⭐⭐⭐
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-sm text-gray-700 leading-relaxed">
                 "The financial dashboard gives us complete visibility into our insurance spending. We've reduced claim processing time by 70% and employee satisfaction has increased significantly."
               </p>
             </Card>
 
-            <Card className="p-8 hover:shadow-2xl transition-all duration-300">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+            <Card className="p-6 hover:shadow-2xl transition-all duration-300">
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
                   A
                 </div>
-                <div className="ml-4">
-                  <p className="font-bold text-gray-900">Amit Patel</p>
-                  <p className="text-sm text-gray-600">CEO, Retail Chain</p>
+                <div className="ml-3">
+                  <p className="font-bold text-gray-900 text-sm">Amit Patel</p>
+                  <p className="text-xs text-gray-600">CEO, Retail Chain</p>
                 </div>
               </div>
-              <div className="mb-4">
-                <div className="flex gap-1 text-yellow-500">
+              <div className="mb-3">
+                <div className="flex gap-1 text-yellow-500 text-sm">
                   ⭐⭐⭐⭐⭐
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-sm text-gray-700 leading-relaxed">
                 "Best insurance platform we've used. The role-based access control is perfect for our multi-location setup, and the wellness partners have been a game-changer for employee health."
               </p>
             </Card>
