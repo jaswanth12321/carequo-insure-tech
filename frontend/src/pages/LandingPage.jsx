@@ -421,20 +421,20 @@ export default function LandingPage({ user, setUser }) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 relative overflow-hidden">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]"></div>
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl sm:text-5xl font-heading font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl font-heading font-bold text-white mb-4">
             Ready to Transform Your Insurance Operations?
           </h2>
-          <p className="text-xl text-blue-100 mb-10 leading-relaxed">
+          <p className="text-lg text-blue-100 mb-6 leading-relaxed">
             Join industry leaders who trust CareQuo to manage their corporate insurance programs.
           </p>
           <Button
             data-testid="cta-get-started-btn"
             onClick={() => openModal("signup")}
             size="lg"
-            className="bg-white text-blue-600 hover:bg-gray-100 px-12 py-7 text-lg font-semibold shadow-2xl"
+            className="bg-white text-blue-600 hover:bg-gray-100 px-10 py-6 text-lg font-semibold shadow-2xl"
           >
             Start Your Free Trial
           </Button>
