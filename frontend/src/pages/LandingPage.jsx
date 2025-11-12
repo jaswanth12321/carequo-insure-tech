@@ -159,11 +159,11 @@ export default function LandingPage({ user, setUser }) {
       </section>
 
       {/* Features Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">POWERFUL FEATURES</span>
-            <h2 className="text-4xl sm:text-5xl font-heading font-bold mt-3 text-gray-900">
+            <h2 className="text-3xl sm:text-4xl font-heading font-bold mt-2 text-gray-900">
               Everything You Need in One Platform
             </h2>
           </div>
