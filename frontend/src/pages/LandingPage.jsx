@@ -198,11 +198,11 @@ export default function LandingPage({ user, setUser }) {
               </p>
             </Card>
 
-            <Card data-testid="feature-wellness-partners" className="p-8 border-2 hover:border-pink-200 hover:shadow-2xl transition-all duration-300">
-              <div className="bg-pink-100 w-14 h-14 rounded-xl flex items-center justify-center mb-6">
-                <Heart className="h-7 w-7 text-pink-600" />
+            <Card data-testid="feature-wellness-partners" className="p-6 border-2 hover:border-pink-200 hover:shadow-2xl transition-all duration-300">
+              <div className="bg-pink-100 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+                <Heart className="h-6 w-6 text-pink-600" />
               </div>
-              <h3 className="text-xl font-heading font-bold mb-3 text-gray-900">Wellness Ecosystem</h3>
+              <h3 className="text-lg font-heading font-bold mb-2 text-gray-900">Wellness Ecosystem</h3>
               <p className="text-gray-600 leading-relaxed">
                 Integrated wellness partners including telemedicine, elder care, fitness programs, and mental health services.
               </p>
