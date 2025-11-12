@@ -232,11 +232,11 @@ export default function LandingPage({ user, setUser }) {
       </section>
 
       {/* Trusted Companies Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 overflow-hidden">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Trusted By Industry Leaders</span>
-            <h2 className="text-3xl sm:text-4xl font-heading font-bold mt-3 text-gray-900">
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold mt-2 text-gray-900">
               500+ Companies Trust CareQuo
             </h2>
           </div>
