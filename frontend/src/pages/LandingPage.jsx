@@ -473,9 +473,44 @@ export default function LandingPage({ user, setUser }) {
           </div>
 
           <div className="text-center mt-8">
-            <p className="text-gray-600">
+            <p className="text-gray-600 mb-6">
               <span className="font-bold text-blue-600">4.9/5</span> average rating from <span className="font-semibold">500+ companies</span>
             </p>
+            
+            {/* Awards & Recognition */}
+            <div className="flex flex-wrap items-center justify-center gap-6 mt-6">
+              <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-sm">
+                <div className="text-2xl">🥇</div>
+                <div className="text-left">
+                  <p className="text-xs font-bold text-gray-900">Leader</p>
+                  <p className="text-xs text-gray-600">InsurTech 2024</p>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-sm">
+                <div className="text-2xl">⭐</div>
+                <div className="text-left">
+                  <p className="text-xs font-bold text-gray-900">Top Rated</p>
+                  <p className="text-xs text-gray-600">Capterra 2024</p>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-sm">
+                <div className="text-2xl">🚀</div>
+                <div className="text-left">
+                  <p className="text-xs font-bold text-gray-900">Fast Growing</p>
+                  <p className="text-xs text-gray-600">Inc. 5000 2024</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-sm">
+                <div className="text-2xl">💼</div>
+                <div className="text-left">
+                  <p className="text-xs font-bold text-gray-900">Best Software</p>
+                  <p className="text-xs text-gray-600">HR Tech 2024</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
