@@ -243,10 +243,62 @@ export default function LandingPage({ user, setUser }) {
           
           {/* Scrolling Logos */}
           <div className="relative">
-            <div className="flex overflow-hidden">
-              <div className="flex animate-scroll gap-16 items-center">
-                <img src="https://customer-assets.emergentagent.com/job_workforce-care/artifacts/bz36qmu5_image.png" alt="Partner Companies" className="h-32 w-auto opacity-60 hover:opacity-100 transition-opacity" />
-                <img src="https://customer-assets.emergentagent.com/job_workforce-care/artifacts/bz36qmu5_image.png" alt="Partner Companies" className="h-32 w-auto opacity-60 hover:opacity-100 transition-opacity" />
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
+            
+            <div className="flex overflow-hidden py-4">
+              <div className="flex animate-scroll-slow gap-12 items-center whitespace-nowrap">
+                {/* First set of logos */}
+                <div className="flex items-center justify-center bg-white rounded-lg shadow-sm px-8 py-6 min-w-[180px] hover:shadow-md transition-shadow">
+                  <span className="text-2xl font-bold text-blue-600">Cognizant</span>
+                </div>
+                <div className="flex items-center justify-center bg-white rounded-lg shadow-sm px-8 py-6 min-w-[180px] hover:shadow-md transition-shadow">
+                  <span className="text-2xl font-bold text-green-600">Capgemini</span>
+                </div>
+                <div className="flex items-center justify-center bg-white rounded-lg shadow-sm px-8 py-6 min-w-[180px] hover:shadow-md transition-shadow">
+                  <span className="text-2xl font-bold text-purple-600">Infosys</span>
+                </div>
+                <div className="flex items-center justify-center bg-white rounded-lg shadow-sm px-8 py-6 min-w-[180px] hover:shadow-md transition-shadow">
+                  <span className="text-2xl font-bold text-orange-600">Wipro</span>
+                </div>
+                <div className="flex items-center justify-center bg-white rounded-lg shadow-sm px-8 py-6 min-w-[180px] hover:shadow-md transition-shadow">
+                  <span className="text-2xl font-bold text-red-600">TCS</span>
+                </div>
+                <div className="flex items-center justify-center bg-white rounded-lg shadow-sm px-8 py-6 min-w-[180px] hover:shadow-md transition-shadow">
+                  <span className="text-2xl font-bold text-indigo-600">HCL Tech</span>
+                </div>
+                <div className="flex items-center justify-center bg-white rounded-lg shadow-sm px-8 py-6 min-w-[180px] hover:shadow-md transition-shadow">
+                  <span className="text-2xl font-bold text-pink-600">Tech Mahindra</span>
+                </div>
+                <div className="flex items-center justify-center bg-white rounded-lg shadow-sm px-8 py-6 min-w-[180px] hover:shadow-md transition-shadow">
+                  <span className="text-2xl font-bold text-teal-600">Accenture</span>
+                </div>
+                
+                {/* Duplicate set for seamless loop */}
+                <div className="flex items-center justify-center bg-white rounded-lg shadow-sm px-8 py-6 min-w-[180px] hover:shadow-md transition-shadow">
+                  <span className="text-2xl font-bold text-blue-600">Cognizant</span>
+                </div>
+                <div className="flex items-center justify-center bg-white rounded-lg shadow-sm px-8 py-6 min-w-[180px] hover:shadow-md transition-shadow">
+                  <span className="text-2xl font-bold text-green-600">Capgemini</span>
+                </div>
+                <div className="flex items-center justify-center bg-white rounded-lg shadow-sm px-8 py-6 min-w-[180px] hover:shadow-md transition-shadow">
+                  <span className="text-2xl font-bold text-purple-600">Infosys</span>
+                </div>
+                <div className="flex items-center justify-center bg-white rounded-lg shadow-sm px-8 py-6 min-w-[180px] hover:shadow-md transition-shadow">
+                  <span className="text-2xl font-bold text-orange-600">Wipro</span>
+                </div>
+                <div className="flex items-center justify-center bg-white rounded-lg shadow-sm px-8 py-6 min-w-[180px] hover:shadow-md transition-shadow">
+                  <span className="text-2xl font-bold text-red-600">TCS</span>
+                </div>
+                <div className="flex items-center justify-center bg-white rounded-lg shadow-sm px-8 py-6 min-w-[180px] hover:shadow-md transition-shadow">
+                  <span className="text-2xl font-bold text-indigo-600">HCL Tech</span>
+                </div>
+                <div className="flex items-center justify-center bg-white rounded-lg shadow-sm px-8 py-6 min-w-[180px] hover:shadow-md transition-shadow">
+                  <span className="text-2xl font-bold text-pink-600">Tech Mahindra</span>
+                </div>
+                <div className="flex items-center justify-center bg-white rounded-lg shadow-sm px-8 py-6 min-w-[180px] hover:shadow-md transition-shadow">
+                  <span className="text-2xl font-bold text-teal-600">Accenture</span>
+                </div>
               </div>
             </div>
           </div>
