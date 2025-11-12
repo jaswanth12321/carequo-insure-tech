@@ -231,6 +231,143 @@ export default function LandingPage({ user, setUser }) {
         </div>
       </section>
 
+      {/* Trusted Companies Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Trusted By Industry Leaders</span>
+            <h2 className="text-3xl sm:text-4xl font-heading font-bold mt-3 text-gray-900">
+              500+ Companies Trust CareQuo
+            </h2>
+          </div>
+          
+          {/* Scrolling Logos */}
+          <div className="relative">
+            <div className="flex overflow-hidden">
+              <div className="flex animate-scroll gap-16 items-center">
+                <img src="https://customer-assets.emergentagent.com/job_workforce-care/artifacts/bz36qmu5_image.png" alt="Partner Companies" className="h-32 w-auto opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://customer-assets.emergentagent.com/job_workforce-care/artifacts/bz36qmu5_image.png" alt="Partner Companies" className="h-32 w-auto opacity-60 hover:opacity-100 transition-opacity" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Insurance Partners Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Our Insurance Network</span>
+            <h2 className="text-3xl sm:text-4xl font-heading font-bold mt-3 text-gray-900">
+              Partnered with Leading Insurance Providers
+            </h2>
+            <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+              We've partnered with India's top insurance companies to bring you the best coverage options
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+            {[
+              { name: "HDFC Life Insurance", logo: "🏢" },
+              { name: "ICICI Prudential", logo: "🏦" },
+              { name: "SBI Life Insurance", logo: "🏛️" },
+              { name: "Max Life Insurance", logo: "💼" },
+              { name: "Bajaj Allianz", logo: "🏢" },
+              { name: "LIC of India", logo: "🏛️" },
+              { name: "Tata AIA", logo: "🏢" },
+              { name: "Aditya Birla Sun Life", logo: "💼" },
+              { name: "Star Health Insurance", logo: "⭐" },
+              { name: "Reliance General Insurance", logo: "🏢" }
+            ].map((partner, index) => (
+              <Card key={index} className="p-6 flex flex-col items-center justify-center hover:shadow-lg transition-all duration-300 border-2 hover:border-blue-200">
+                <div className="text-5xl mb-3">{partner.logo}</div>
+                <p className="text-sm font-semibold text-gray-700 text-center">{partner.name}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Client Testimonials Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">What Our Clients Say</span>
+            <h2 className="text-3xl sm:text-4xl font-heading font-bold mt-3 text-gray-900">
+              Trusted by HR Leaders Across Industries
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="p-8 hover:shadow-2xl transition-all duration-300">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                  R
+                </div>
+                <div className="ml-4">
+                  <p className="font-bold text-gray-900">Rajesh Kumar</p>
+                  <p className="text-sm text-gray-600">HR Director, Tech Solutions Ltd</p>
+                </div>
+              </div>
+              <div className="mb-4">
+                <div className="flex gap-1 text-yellow-500">
+                  ⭐⭐⭐⭐⭐
+                </div>
+              </div>
+              <p className="text-gray-700 leading-relaxed">
+                "CareQuo has revolutionized how we manage employee insurance. The automated claims processing saves us hours every week, and our employees love the wellness partner integration."
+              </p>
+            </Card>
+
+            <Card className="p-8 hover:shadow-2xl transition-all duration-300">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-600 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                  P
+                </div>
+                <div className="ml-4">
+                  <p className="font-bold text-gray-900">Priya Sharma</p>
+                  <p className="text-sm text-gray-600">VP Operations, Manufacturing Co</p>
+                </div>
+              </div>
+              <div className="mb-4">
+                <div className="flex gap-1 text-yellow-500">
+                  ⭐⭐⭐⭐⭐
+                </div>
+              </div>
+              <p className="text-gray-700 leading-relaxed">
+                "The financial dashboard gives us complete visibility into our insurance spending. We've reduced claim processing time by 70% and employee satisfaction has increased significantly."
+              </p>
+            </Card>
+
+            <Card className="p-8 hover:shadow-2xl transition-all duration-300">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                  A
+                </div>
+                <div className="ml-4">
+                  <p className="font-bold text-gray-900">Amit Patel</p>
+                  <p className="text-sm text-gray-600">CEO, Retail Chain</p>
+                </div>
+              </div>
+              <div className="mb-4">
+                <div className="flex gap-1 text-yellow-500">
+                  ⭐⭐⭐⭐⭐
+                </div>
+              </div>
+              <p className="text-gray-700 leading-relaxed">
+                "Best insurance platform we've used. The role-based access control is perfect for our multi-location setup, and the wellness partners have been a game-changer for employee health."
+              </p>
+            </Card>
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-gray-600 text-lg">
+              <span className="font-bold text-blue-600">4.9/5</span> average rating from <span className="font-semibold">500+ companies</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]"></div>
