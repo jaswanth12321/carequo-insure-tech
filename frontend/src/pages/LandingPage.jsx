@@ -158,6 +158,66 @@ export default function LandingPage({ user, setUser }) {
         </div>
       </section>
 
+      {/* Trust Badges Section */}
+      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-white border-y border-gray-200">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-wrap items-center justify-center gap-8">
+            {/* Trustpilot Rating */}
+            <div className="flex items-center gap-3 px-6 py-3 bg-green-50 rounded-lg">
+              <div className="flex flex-col">
+                <div className="flex items-center gap-1 mb-1">
+                  <span className="text-green-600 font-bold text-lg">★★★★★</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-green-700 font-bold text-sm">Trustpilot</span>
+                  <span className="text-gray-600 text-xs">4.8/5 (2,500+ reviews)</span>
+                </div>
+              </div>
+            </div>
+
+            {/* G2 Rating */}
+            <div className="flex items-center gap-3 px-6 py-3 bg-orange-50 rounded-lg">
+              <div className="flex flex-col">
+                <div className="flex items-center gap-1 mb-1">
+                  <span className="text-orange-600 font-bold text-lg">★★★★★</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-orange-700 font-bold text-sm">G2</span>
+                  <span className="text-gray-600 text-xs">4.9/5 (High Performer)</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Best Place to Work */}
+            <div className="flex items-center gap-3 px-6 py-3 bg-blue-50 rounded-lg">
+              <div className="text-3xl">🏆</div>
+              <div className="flex flex-col">
+                <span className="text-blue-900 font-bold text-sm">Best Place to Work</span>
+                <span className="text-gray-600 text-xs">Great Place to Work® 2024</span>
+              </div>
+            </div>
+
+            {/* ISO Certified */}
+            <div className="flex items-center gap-3 px-6 py-3 bg-indigo-50 rounded-lg">
+              <div className="text-3xl">✓</div>
+              <div className="flex flex-col">
+                <span className="text-indigo-900 font-bold text-sm">ISO 27001 Certified</span>
+                <span className="text-gray-600 text-xs">Security & Compliance</span>
+              </div>
+            </div>
+
+            {/* GDPR Compliant */}
+            <div className="flex items-center gap-3 px-6 py-3 bg-purple-50 rounded-lg">
+              <div className="text-3xl">🔒</div>
+              <div className="flex flex-col">
+                <span className="text-purple-900 font-bold text-sm">GDPR Compliant</span>
+                <span className="text-gray-600 text-xs">Data Protection</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
